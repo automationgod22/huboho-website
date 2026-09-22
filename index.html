@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en-IN" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Huboho: Boho Café & Eatery in Gokulpeth, Nagpur | Wood-fired Pizza, Sushi, Matcha</title>
+  <meta name="description" content="A boho café & eatery on Canal Road, Gokulpeth, Nagpur. Wood-fired pizzas, sushi, ramen, dim sums and speciality coffee and matcha. Dogs welcome. Open daily 11 am – 11:45 pm.">
+  <meta name="theme-color" content="#EFE4CA">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Huboho: Coffee & Eatery, by Lush House">
+  <meta property="og:description" content="Wood-fired pizza, sushi, ramen and matcha under a bamboo roof on Canal Road, Gokulpeth. Dogs welcome.">
+  <meta property="og:image" content="images/verandah.webp">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Motion setup runs before first paint so nothing flashes -->
+  <script>
+    (function (d) {
+      var h = d.documentElement;
+      h.classList.remove("no-js");
+      h.classList.add("js");
+      var calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (calm) h.classList.add("reveal-all");
+      try {
+        if (!calm && !sessionStorage.getItem("huboho-intro")) {
+          h.classList.add("intro");
+          sessionStorage.setItem("huboho-intro", "1");
+        }
+      } catch (e) {}
+      // Safety net: if the main script never runs, show everything
+      setTimeout(function () { if (!window.__huboho) h.classList.add("reveal-all"); }, 3500);
+    })(document);
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Lexend+Exa:wght@400;500;600&family=Marcellus&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Devanagari for the storefront sign, subset to हुबो only -->
+  <link href="https://fonts.googleapis.com/css2?family=Rozha+One&text=%E0%A4%B9%E0%A5%81%E0%A4%AC%E0%A5%8B&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Huboho: Coffee & Eatery",
+    "alternateName": ["Huboho Cafe & Eatery", "Huboho by Lush House"],
+    "description": "Boho café & eatery by Lush House: speciality coffee, Pan-Asian food and wood-fired pizzas. Pet friendly.",
+    "servesCuisine": ["Cafe", "Pan Asian", "Sushi", "Pizza", "Italian", "Coffee"],
+    "priceRange": "₹₹",
+    "telephone": "+91-9595202161",
+    "acceptsReservations": "True",
+    "hasMenu": "#menu",
+    "image": "images/verandah.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot No. 55, Prabha Apartment, Canal Road, Gokulpeth",
+      "addressLocality": "Nagpur",
+      "addressRegion": "Maharashtra",
+      "postalCode": "440010",
+      "addressCountry": "IN"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 21.1448809, "longitude": 79.0577153 },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "11:00", "closes": "23:45"
+    }],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Pet friendly", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Outdoor seating", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Wheelchair accessible", "value": true }
+    ],
+    "sameAs": ["https://www.instagram.com/huboho/"]
+  }
+  </script>
+</head>
+<body>
+
+<!-- Reusable line-art, drawn in the style of the printed menu -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 1.5c.7 5.6 4.9 9.8 10.5 10.5-5.6.7-9.8 4.9-10.5 10.5C11.3 16.9 7.1 12.7 1.5 12 7.1 11.3 11.3 7.1 12 1.5z" fill="currentColor"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M15.5 2.5A9.8 9.8 0 1 0 21.8 19 8 8 0 0 1 15.5 2.5z" fill="currentColor"/></symbol>
+    <symbol id="i-chilli" viewBox="0 0 24 24"><path d="M2.5 19.8c5.8.9 12.4-2.3 15.2-9.8.3-.9 1.5-1 1.9-.1.5.9.4 2 .1 3-2 6.6-10.2 9.9-17.2 6.9z" fill="currentColor"/><path d="M18.9 9.4c.1-1.8.9-3.2 2.6-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-sprig" viewBox="0 0 12 20"><path d="M6 19V4" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round"/><path d="M6 6c-2.6-.4-4-2-4.2-4.2C4 2 5.6 3.4 6 6zm0 4c2.6-.4 4-2 4.2-4.2C8 6 6.4 7.4 6 10zm0 4c-2.6-.4-4-2-4.2-4.2C4 10 5.6 11.4 6 14z" fill="currentColor"/></symbol>
+    <symbol id="i-paw" viewBox="0 0 24 24"><g fill="currentColor"><ellipse cx="6" cy="10" rx="2" ry="2.6"/><ellipse cx="10" cy="6" rx="2" ry="2.6"/><ellipse cx="14.5" cy="6" rx="2" ry="2.6"/><ellipse cx="18.5" cy="10" rx="2" ry="2.6"/><path d="M12.2 11c2.8 0 6 4.6 5.6 7-.3 2-2.3 2.3-3.6 1.9-1.2-.4-2.8-.4-4 0-1.3.4-3.3.1-3.6-1.9-.4-2.4 2.8-7 5.6-7z"/></g></symbol>
+    <symbol id="i-access" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="1.6" fill="currentColor" stroke="none"/><path d="M11 7v6h5.5l2.5 5.5"/><path d="M7.5 10.5a6 6 0 1 0 8 7.5"/></g></symbol>
+    <symbol id="i-rupee" viewBox="0 0 24 24"><path d="M6.5 4.5h11M6.5 9h11M9 4.5c4.6 0 6 2 6 4.5S13.4 13.5 9 13.5h-2.5L15 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></g></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2a9.7 9.7 0 0 0-8.4 14.6L2.3 21.8l5.1-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2 4.7 4.7 0 0 0 1 2.5 10.7 10.7 0 0 0 4.1 3.6c1.5.7 2.1.7 2.9.6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.3-.3z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7.2 3.5 9.6 3l1.6 4.2-2 1.4a11 11 0 0 0 5.2 5.2l1.4-2 4.2 1.6-.5 2.4a2.2 2.2 0 0 1-2.3 1.7C10.4 17 3.9 10.5 3.5 5.8a2.2 2.2 0 0 1 1.7-2.3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 21.5s-7-6.3-7-12a7 7 0 0 1 14 0c0 5.7-7 12-7 12z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></g></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- First-visit intro: the logo draws itself, then the curtain lifts -->
+<div class="intro" aria-hidden="true">
+  <svg class="intro-logo" viewBox="0 0 64 104">
+    <rect class="intro-ring" x="2" y="2" width="60" height="100" rx="30" pathLength="1"/>
+    <rect class="intro-ring inner" x="6.5" y="6.5" width="51" height="91" rx="25.5" pathLength="1"/>
+    <g class="intro-letters" font-family="Marcellus, serif" font-size="18" text-anchor="middle">
+      <text x="30" y="40">HU</text><text x="32" y="62">BO</text><text x="32" y="84">HO</text>
+    </g>
+  </svg>
+</div>
+
+<div class="progress" aria-hidden="true"></div>
+
+<a class="skip" href="#menu">Skip to the menu</a>
+
+<header class="site-header" id="header">
+  <a class="brand" href="#top" aria-label="Huboho, back to top">
+    <svg class="logo" viewBox="0 0 64 104" aria-hidden="true">
+      <rect x="2" y="2" width="60" height="100" rx="30" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <rect x="6.5" y="6.5" width="51" height="91" rx="25.5" fill="none" stroke="currentColor" stroke-width="0.9"/>
+      <g font-family="Marcellus, serif" font-size="18" text-anchor="middle" fill="currentColor" letter-spacing="0.5">
+        <text x="30" y="40">HU</text><text x="32" y="62">BO</text><text x="32" y="84">HO</text>
+      </g>
+      <use href="#i-sprig" x="40" y="22" width="8" height="16"/>
+    </svg>
+    <span class="brand-word">Huboho<small>by Lush House</small></span>
+  </a>
+
+  <nav class="site-nav" id="site-nav" aria-label="Sections">
+    <a href="#menu" style="--i:0">Menu</a>
+    <a href="#stars" style="--i:1">Your stars</a>
+    <a href="#space" style="--i:2">The space</a>
+    <a href="#visit" style="--i:3">Visit</a>
+    <p class="nav-foot" style="--i:4">Canal Road, Gokulpeth · <a href="tel:+919595202161">95952 02161</a></p>
+  </nav>
+
+  <p class="status" id="open-status" aria-live="polite"><span class="status-dot"></span><span class="status-text">Open daily 11 am – 11:45 pm</span></p>
+  <a class="btn btn-cocoa header-book" href="#book"><span>Book a table</span></a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+    <span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow" data-hero style="--d:.05s">Boho café & eatery · Canal Road, Gokulpeth</p>
+      <h1 id="hero-title" data-split data-hero style="--d:.15s">Protect your <br>inner peace.</h1>
+      <p class="hero-twist" data-hero style="--d:.75s">Then order the <span class="nw">Flamno&nbsp;Bhut. <span class="chillies" aria-label="very spicy"><svg class="mk-chilli" aria-hidden="true"><use href="#i-chilli"/></svg><svg class="mk-chilli" aria-hidden="true"><use href="#i-chilli"/></svg></span></span></p>
+      <p class="hero-lede" data-hero style="--d:.9s">Wood-fired pizzas, sushi, ramen and ceremonial matcha, served on a plant-filled verandah under a bamboo ceiling. Bring friends, bring family, bring the dog. We're open every day till 11:45&nbsp;pm.</p>
+      <div class="hero-actions" data-hero style="--d:1.02s">
+        <a class="btn btn-cocoa" href="#book"><span>Book a table</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-line" href="#menu"><span>See the menu</span></a>
+      </div>
+      <ul class="hero-facts" aria-label="At a glance" data-hero style="--d:1.14s">
+        <li><svg aria-hidden="true"><use href="#i-sparkle"/></svg>4.5 on Google · 1,313 reviews</li>
+        <li><svg aria-hidden="true"><use href="#i-paw"/></svg>Dogs welcome</li>
+        <li><svg aria-hidden="true"><use href="#i-access"/></svg>Step-free entry</li>
+        <li><svg aria-hidden="true"><use href="#i-rupee"/></svg>About ₹1,000 for two</li>
+      </ul>
+    </div>
+
+    <figure class="hero-arch" aria-hidden="true">
+      <svg viewBox="0 0 420 640" class="arch-art">
+        <defs>
+          <clipPath id="archClip"><rect x="24" y="24" width="372" height="592" rx="186"/></clipPath>
+          <linearGradient id="dawn" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#C9DCE9"/>
+            <stop offset=".46" stop-color="#C8C2E2"/>
+            <stop offset=".78" stop-color="#F2EAC4"/>
+            <stop offset="1" stop-color="#F2EAC4"/>
+          </linearGradient>
+        </defs>
+        <rect class="arch-fill" x="24" y="24" width="372" height="592" rx="186" fill="url(#dawn)"/>
+        <g clip-path="url(#archClip)">
+          <g class="rays-wrap"><g class="rays" stroke="#231A10" stroke-opacity=".22" stroke-width="1.2"></g></g>
+          <g class="arch-sun">
+            <circle cx="210" cy="560" r="92" fill="#F7EFCF" stroke="#231A10" stroke-width="1.4"/>
+            <circle cx="210" cy="560" r="78" fill="none" stroke="#231A10" stroke-opacity=".5" stroke-width=".8" stroke-dasharray="2 5"/>
+          </g>
+          <path d="M24 600 C110 572 170 590 210 580 C260 568 320 584 396 566 V640 H24 Z" fill="#D3E0C1" stroke="#231A10" stroke-width="1.2"/>
+        </g>
+        <g class="arch-letters" font-family="Marcellus, serif" text-anchor="middle" fill="#231A10">
+          <text x="200" y="232" font-size="92" letter-spacing="4">HU</text>
+          <text x="210" y="332" font-size="92" letter-spacing="4">BO</text>
+          <text x="210" y="432" font-size="92" letter-spacing="4">HO</text>
+        </g>
+        <g class="arch-stars">
+          <use href="#i-sprig" x="262" y="150" width="30" height="50" style="color:#46612F"/>
+          <use href="#i-moon" x="92" y="104" width="34" height="34" style="color:#F7EFCF" class="twinkle t2"/>
+          <use href="#i-sparkle" x="314" y="118" width="22" height="22" style="color:#231A10" class="twinkle"/>
+          <use href="#i-sparkle" x="70" y="300" width="14" height="14" style="color:#231A10" class="twinkle t3"/>
+          <use href="#i-sparkle" x="330" y="380" width="16" height="16" style="color:#231A10" class="twinkle t2"/>
+        </g>
+        <rect class="arch-outline" x="24" y="24" width="372" height="592" rx="186" fill="none" stroke="#231A10" stroke-width="2" pathLength="1"/>
+        <rect class="arch-outline outer" x="10" y="10" width="400" height="620" rx="200" fill="none" stroke="#231A10" stroke-width="1" pathLength="1"/>
+      </svg>
+      <figcaption data-hero style="--d:1.3s">By Lush House</figcaption>
+    </figure>
+
+    <a class="scroll-cue" href="#inside" data-hero style="--d:1.5s"><span>Scroll</span><i aria-hidden="true"></i></a>
+  </section>
+
+  <!-- ============ INSIDE: the café's own listing photos, framed like the logo's arch ============ -->
+  <section class="windows" id="inside" aria-label="Inside Huboho">
+    <ul class="window-row" id="window-row">
+      <li data-reveal="win" style="--d:0s">
+        <figure class="win">
+          <button class="win-open" type="button" data-photo="0" aria-label="View photo: the verandah">
+            <img src="images/verandah.webp" alt="The verandah: long tables under a bamboo ceiling with a wavy white trim, beside palms" loading="lazy" decoding="async" width="560" height="748">
+            <svg class="win-icon" aria-hidden="true"><use href="#i-expand"/></svg>
+          </button>
+          <figcaption>The verandah</figcaption>
+        </figure>
+      </li>
+      <li data-reveal="win" style="--d:.1s">
+        <figure class="win">
+          <button class="win-open" type="button" data-photo="1" aria-label="View photo: tempura sushi">
+            <img src="images/tempura-sushi.webp" alt="Tempura sushi rolls with spicy mayo and pickled ginger" loading="lazy" decoding="async" width="560" height="700">
+            <svg class="win-icon" aria-hidden="true"><use href="#i-expand"/></svg>
+          </button>
+          <figcaption>Tempura sushi · ₹569</figcaption>
+        </figure>
+      </li>
+      <li data-reveal="win" style="--d:.2s">
+        <figure class="win">
+          <button class="win-open" type="button" data-photo="2" aria-label="View photo: the inner peace poster">
+            <img src="images/inner-peace-poster.webp" alt="A sun poster reading 'Protect your inner peace' under a rattan lamp" loading="lazy" decoding="async" width="560" height="811">
+            <svg class="win-icon" aria-hidden="true"><use href="#i-expand"/></svg>
+          </button>
+          <figcaption>Advice on the wall</figcaption>
+        </figure>
+      </li>
+      <li data-reveal="win" style="--d:.3s">
+        <figure class="win">
+          <button class="win-open" type="button" data-photo="3" aria-label="View photo: wood-fired pizza">
+            <img src="images/pizza-oven.webp" alt="A pizza baking in the oven" loading="lazy" decoding="async" width="580" height="560">
+            <svg class="win-icon" aria-hidden="true"><use href="#i-expand"/></svg>
+          </button>
+          <figcaption>Wood-fired pizza</figcaption>
+        </figure>
+      </li>
+      <li data-reveal="win" style="--d:.4s">
+        <figure class="win">
+          <button class="win-open" type="button" data-photo="4" aria-label="View photo: rattan lanterns">
+            <img src="images/rattan-lanterns.webp" alt="Rattan pendant lamps over the indoor tables" loading="lazy" decoding="async" width="560" height="735">
+            <svg class="win-icon" aria-hidden="true"><use href="#i-expand"/></svg>
+          </button>
+          <figcaption>Rattan lanterns</figcaption>
+        </figure>
+      </li>
+    </ul>
+    <div class="win-track" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- ============ RIBBON: dish names straight off the menu ============ -->
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track">
+      <span>Flamno Bhut</span><i>✦</i><span>Bae-route</span><i>✦</i><span>Khow Suey My Way</span><i>✦</i><span>Boho Blaze</span><i>✦</i><span>Mango Matcha</span><i>✦</i><span>55 Chinatown Sizzler</span><i>✦</i><span>Delhi-6</span><i>✦</i><span>Bohemian 22 Iced Tea</span><i>✦</i><span>Hazelbomb</span><i>✦</i><span>Brown Bunny</span><i>✦</i>
+    </div>
+  </div>
+
+  <!-- ============ MOST MENTIONED ============ -->
+  <section class="loved" id="loved" aria-labelledby="loved-title">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>From 1,313 Google reviews</p>
+      <h2 id="loved-title" data-split>What people mention most</h2>
+      <p class="section-sub" data-reveal style="--d:.2s">Counted from the topics Google picks out of our reviews. Top of the list is the team, not a dish.</p>
+    </div>
+    <ol class="loved-list" id="loved-list"></ol>
+  </section>
+
+  <!-- ============ MENU ============ -->
+  <section class="menu" id="menu" aria-labelledby="menu-title">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>The menu</p>
+      <h2 id="menu-title" data-split>Everything we make</h2>
+      <p class="section-sub" data-reveal style="--d:.2s">Straight from our printed menu. Prices in ₹, taxes extra.</p>
+    </div>
+
+    <div class="menu-controls" data-reveal style="--d:.25s">
+      <div class="tabs" role="tablist" aria-label="Menu type">
+        <span class="tab-pill" aria-hidden="true"></span>
+        <button role="tab" id="tab-food" aria-controls="panel-food" aria-selected="true" type="button">Food</button>
+        <button role="tab" id="tab-drinks" aria-controls="panel-drinks" aria-selected="false" tabindex="-1" type="button">Drinks</button>
+      </div>
+      <label class="search">
+        <svg aria-hidden="true"><use href="#i-search"/></svg>
+        <span class="visually-hidden">Search the menu</span>
+        <input type="search" id="menu-search" placeholder="Search: ramen, paneer, matcha…" autocomplete="off" enterkeyhint="search">
+      </label>
+      <div class="filters">
+        <button class="chip-toggle" type="button" id="filter-veg" aria-pressed="false"><span class="mk mk-v" aria-hidden="true">▼</span>Pure veg</button>
+        <button class="chip-toggle" type="button" id="filter-spicy" aria-pressed="false"><svg class="mk-chilli" aria-hidden="true"><use href="#i-chilli"/></svg>Spicy</button>
+      </div>
+    </div>
+
+    <nav class="cat-rail" id="cat-rail" aria-label="Menu sections"></nav>
+
+    <div class="menu-book" data-reveal style="--d:.1s">
+      <div class="legend-bar" aria-label="Menu symbols">
+        <span><span class="mk mk-v" aria-hidden="true">▼</span> vegetarian</span>
+        <span><span class="mk mk-c" aria-hidden="true">●</span> chicken</span>
+        <span><span class="mk mk-e" aria-hidden="true">■</span> contains egg</span>
+        <span><svg class="mk-chilli" aria-hidden="true"><use href="#i-chilli"/></svg> spicy</span>
+      </div>
+      <div class="menu-sheet">
+        <div role="tabpanel" id="panel-food" aria-labelledby="tab-food" class="panel panel-food"></div>
+        <div role="tabpanel" id="panel-drinks" aria-labelledby="tab-drinks" class="panel panel-drinks" hidden></div>
+        <p class="menu-empty" id="menu-empty" hidden></p>
+        <noscript><p class="menu-empty">The interactive menu needs JavaScript. You can also see it on <a href="https://www.zomato.com/nagpur/huboho-cafe-eatery-gokulpeth/menu">Zomato</a>.</p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOROSCOPE (signature) ============ -->
+  <section class="stars" id="stars" aria-labelledby="stars-title">
+    <div class="stars-inner">
+      <div class="section-head on-dark">
+        <p class="eyebrow" data-reveal>Your Huboho horoscope</p>
+        <h2 id="stars-title" data-split>Let the stars order for you</h2>
+        <p class="section-sub" data-reveal style="--d:.2s">That wheel on our menu isn't only decoration. Tap your sign, or give the wheel a spin, and it gives you one dish and one drink.</p>
+      </div>
+
+      <div class="stars-stage">
+        <div class="wheel-wrap" data-reveal="scale">
+          <svg class="wheel-pointer" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18L12 20z" fill="currentColor"/></svg>
+          <svg class="wheel" id="wheel" viewBox="0 0 440 440" role="group" aria-label="Zodiac wheel. Choose your sign."></svg>
+        </div>
+
+        <article class="reading" id="reading" aria-live="polite" data-reveal style="--d:.2s">
+          <div class="reading-card" id="reading-card">
+            <p class="reading-kicker" id="reading-kicker">The sun is in Virgo today</p>
+            <svg class="reading-glyph" id="reading-glyph" viewBox="0 0 24 24" aria-hidden="true"></svg>
+            <h3 class="reading-sign" id="reading-sign">Virgo</h3>
+            <p class="reading-dates" id="reading-dates">23 Aug – 22 Sep</p>
+            <p class="reading-text" id="reading-text"></p>
+            <dl class="reading-order">
+              <div><dt>Eat</dt><dd><span id="reading-dish"></span><b id="reading-dish-p"></b></dd></div>
+              <div><dt>Drink</dt><dd><span id="reading-drink"></span><b id="reading-drink-p"></b></dd></div>
+              <div class="reading-total"><dt>Together</dt><dd><span></span><b id="reading-total"></b></dd></div>
+            </dl>
+          </div>
+          <div class="reading-actions">
+            <a class="btn btn-butter" href="#book" id="reading-book"><span>Book a table for this</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <button class="btn btn-ghost-light" type="button" id="reading-random"><span>Let the stars pick</span></button>
+          </div>
+          <label class="veg-switch">
+            <input type="checkbox" id="stars-veg">
+            <span class="switch" aria-hidden="true"></span>
+            Pure veg readings
+          </label>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE SPACE ============ -->
+  <section class="space" id="space" aria-labelledby="space-title">
+    <div class="ceiling" aria-hidden="true">
+      <svg class="lamp lamp-a" viewBox="0 0 120 200"><use href="#lamp"/></svg>
+      <svg class="lamp lamp-b" viewBox="0 0 120 200"><use href="#lamp"/></svg>
+      <svg width="0" height="0" style="position:absolute">
+        <defs>
+          <radialGradient id="glow" cx=".5" cy=".3" r=".6"><stop offset="0" stop-color="#F7E6A6" stop-opacity=".9"/><stop offset="1" stop-color="#F7E6A6" stop-opacity="0"/></radialGradient>
+          <symbol id="lamp" viewBox="0 0 120 200">
+            <ellipse class="lamp-glow" cx="60" cy="150" rx="58" ry="46" fill="url(#glow)"/>
+            <path d="M60 0v66" stroke="#231A10" stroke-width="1.2"/>
+            <g fill="none" stroke="#9C7038" stroke-width="1.3">
+              <path d="M10 130C10 90 34 66 60 66s50 24 50 64" fill="#E7CE9C" fill-opacity=".55"/>
+              <path d="M10 130c20 10 80 10 100 0"/>
+              <path d="M60 66c-14 14-26 36-34 69M60 66c-6 16-11 40-12 72M60 66v73M60 66c6 16 11 40 12 72M60 66c14 14 26 36 34 69M60 66C44 76 26 100 18 133M60 66c16 10 34 34 42 67"/>
+              <path d="M22 100c24 6 52 6 76 0M14 116c30 7 62 7 92 0" stroke-opacity=".7"/>
+            </g>
+            <circle cx="60" cy="132" r="6" fill="#F7EFCF" stroke="#9C7038"/>
+          </symbol>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="space-inner">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal>The space</p>
+        <h2 id="space-title" data-split>Pick your corner</h2>
+      </div>
+
+      <div class="rooms">
+        <article class="room" data-reveal>
+          <button class="room-open" type="button" data-photo="5" aria-label="View photo: the verandah in the evening">
+            <img class="room-photo" src="images/verandah-evening.webp" alt="The verandah in the evening, with woven sun plates on white clapboard and cane chairs" loading="lazy" decoding="async" width="900" height="1191">
+          </button>
+          <h3>The verandah</h3>
+          <p>A bamboo-mat ceiling with a wavy white trim, cane chairs, woven sun plates on white clapboard, and more plants than we can name. It's the spot for slow Sunday lunches, dogs stretched out under the table, and photos in the good light.</p>
+          <p class="room-good"><span>Good for</span> Sunday lunch · golden hour · you and your dog</p>
+        </article>
+        <article class="room" data-reveal style="--d:.12s">
+          <button class="room-open" type="button" data-photo="6" aria-label="View photo: the wildflower wall indoors">
+            <img class="room-photo" src="images/wildflower-wall.webp" alt="Indoor wall lettering reading 'always a wildflower child' under rattan lamps" loading="lazy" decoding="async" width="900" height="1184">
+          </button>
+          <h3>Indoors</h3>
+          <p>Rattan lanterns, cognac leather chairs, macramé, wobbly-edged mirrors and the AC on for those May afternoons. One wall reminds you that you're always a wildflower child. The sun poster adds: protect your inner peace.</p>
+          <p class="room-good"><span>Good for</span> date night · birthdays · a long catch-up</p>
+        </article>
+      </div>
+
+      <ul class="know" aria-label="Good to know">
+        <li data-reveal style="--d:0s"><svg aria-hidden="true"><use href="#i-paw"/></svg><div><b>Pet friendly</b><span>Dogs are welcome. Tell us when you book.</span></div></li>
+        <li data-reveal style="--d:.08s"><svg aria-hidden="true"><use href="#i-access"/></svg><div><b>Step-free</b><span>Wheelchair-accessible entrance, seating and washroom.</span></div></li>
+        <li data-reveal style="--d:.16s"><span class="know-mk" aria-hidden="true"><span class="mk mk-v">▼</span><span class="mk mk-c">●</span><span class="mk mk-e">■</span></span><div><b>Clearly marked</b><span>Veg, chicken and egg are marked, just as on our printed menu.</span></div></li>
+        <li data-reveal style="--d:.24s"><svg aria-hidden="true"><use href="#i-sun"/></svg><div><b>Open late, every day</b><span>11 am to 11:45 pm, weekends included.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ VISIT + BOOK ============ -->
+  <section class="visit" id="visit" aria-labelledby="visit-title">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>Visit</p>
+      <h2 id="visit-title" data-split>Plot No. 55, Canal Road</h2>
+      <p class="section-sub" data-reveal style="--d:.2s">Ground and first floor of Prabha Apartment, Gokulpeth. Look for the green <span lang="hi" class="dev">हुबोहो</span> sign.</p>
+    </div>
+
+    <div class="visit-grid">
+      <form class="book" id="book" novalidate aria-labelledby="book-title" data-reveal>
+        <h3 id="book-title">Book a table</h3>
+        <p class="book-sub">Fill this in and WhatsApp opens with your message ready to send. The team replies there to confirm.</p>
+
+        <div class="field">
+          <label for="b-name">Your name</label>
+          <input id="b-name" name="name" type="text" autocomplete="name" enterkeyhint="next" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="b-guests">Guests</label>
+            <select id="b-guests" name="guests"></select>
+          </div>
+          <div class="field">
+            <label for="b-date">Date</label>
+            <input id="b-date" name="date" type="date" required>
+          </div>
+          <div class="field">
+            <label for="b-time">Time</label>
+            <select id="b-time" name="time"></select>
+          </div>
+        </div>
+
+        <fieldset class="field">
+          <legend>Where would you like to sit?</legend>
+          <div class="pills">
+            <label><input type="radio" name="seat" value="On the verandah"><span>Verandah</span></label>
+            <label><input type="radio" name="seat" value="Indoors"><span>Indoors</span></label>
+            <label><input type="radio" name="seat" value="Anywhere is fine" checked><span>Either</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="b-occasion">Occasion <em>(optional)</em></label>
+            <select id="b-occasion" name="occasion">
+              <option value="">Just because</option>
+              <option>Birthday</option>
+              <option>Date night</option>
+              <option>Anniversary</option>
+              <option>Friends catch-up</option>
+              <option>Family lunch</option>
+              <option>Work meeting</option>
+            </select>
+          </div>
+          <label class="check">
+            <input type="checkbox" id="b-dog" name="dog">
+            <span><svg aria-hidden="true"><use href="#i-paw"/></svg>We're bringing a dog</span>
+          </label>
+        </div>
+
+        <label class="check check-stars" id="b-stars-wrap" hidden>
+          <input type="checkbox" id="b-stars" checked>
+          <span id="b-stars-label"></span>
+        </label>
+
+        <p class="form-error" id="book-error" role="alert" hidden></p>
+
+        <div class="book-actions">
+          <button class="btn btn-cocoa" type="submit"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Send on WhatsApp</span></button>
+          <a class="btn btn-line" href="tel:+919595202161"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>Call 95952 02161</span></a>
+        </div>
+        <p class="book-done" id="book-done" role="status" hidden>WhatsApp should be open with your message. Tap send there, and the team will confirm your table.</p>
+        <p class="book-alt">Prefer an app? Book on <a href="https://www.district.in/dining/nagpur/huboho-cafe-eatery-gokulpeth" target="_blank" rel="noopener">District</a>, <a href="https://www.zomato.com/nagpur/huboho-cafe-eatery-gokulpeth/book" target="_blank" rel="noopener">Zomato</a> or <a href="https://www.swiggy.com/restaurants/huboho-by-lush-house-gokulpeth-nagpur-1070653/dineout" target="_blank" rel="noopener">Swiggy Dineout</a>.</p>
+      </form>
+
+      <div class="info" data-reveal style="--d:.12s">
+        <dl class="info-list">
+          <div>
+            <dt>Address</dt>
+            <dd>Plot No. 55, Prabha Apartment<br>Canal Road, Gokulpeth<br>Nagpur 440010 <span class="muted">· Plus code 43V5+X3</span></dd>
+          </div>
+          <div>
+            <dt>Hours</dt>
+            <dd>Every day, 11:00 am – 11:45 pm</dd>
+          </div>
+          <div>
+            <dt>Call</dt>
+            <dd><a href="tel:+919595202161">95952 02161</a></dd>
+          </div>
+          <div>
+            <dt>Order in</dt>
+            <dd><a href="https://www.zomato.com/nagpur/huboho-cafe-eatery-gokulpeth/order" target="_blank" rel="noopener">Zomato delivery</a></dd>
+          </div>
+          <div>
+            <dt>Follow</dt>
+            <dd><a href="https://www.instagram.com/huboho/" target="_blank" rel="noopener">@huboho</a> on Instagram</dd>
+          </div>
+        </dl>
+        <div class="map">
+          <iframe title="Map showing Huboho on Canal Road, Gokulpeth" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Huboho+Cafe+%26+Eatery,+Canal+Road,+Gokulpeth,+Nagpur&z=16&output=embed"></iframe>
+        </div>
+        <a class="btn btn-cocoa btn-block" href="https://www.google.com/maps/dir/?api=1&destination=Huboho%20Cafe%20%26%20Eatery%2C%20Canal%20Road%2C%20Gokulpeth%2C%20Nagpur" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>Get directions</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SIGN-OFF: the storefront sign, green on white clapboard ============ -->
+  <section class="signoff" aria-label="See you at Huboho">
+    <div class="sign" data-reveal="sign">
+      <p class="sign-dev" lang="hi" aria-label="Huboho, in Devanagari"><span>हु</span><svg class="sign-sprig" viewBox="0 0 12 20" aria-hidden="true"><use href="#i-sprig"/></svg><span>बोहो</span></p>
+      <p class="sign-sub">By Lush House</p>
+    </div>
+    <p class="signoff-line" data-reveal style="--d:.3s">See you on Canal Road.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="legend-bar legend-foot" aria-hidden="true">
+    <span><span class="mk">▼</span> vegetarian</span>
+    <span><span class="mk">●</span> chicken</span>
+    <span><span class="mk">■</span> contains egg</span>
+    <span><svg class="mk-chilli"><use href="#i-chilli"/></svg> spicy</span>
+  </div>
+  <div class="footer-inner">
+    <svg class="logo logo-foot" viewBox="0 0 64 104" aria-hidden="true">
+      <rect x="2" y="2" width="60" height="100" rx="30" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <rect x="6.5" y="6.5" width="51" height="91" rx="25.5" fill="none" stroke="currentColor" stroke-width="0.9"/>
+      <g font-family="Marcellus, serif" font-size="18" text-anchor="middle" fill="currentColor" letter-spacing="0.5">
+        <text x="30" y="40">HU</text><text x="32" y="62">BO</text><text x="32" y="84">HO</text>
+      </g>
+      <use href="#i-sprig" x="40" y="22" width="8" height="16"/>
+    </svg>
+    <div>
+      <p class="foot-name">Huboho: Coffee & Eatery</p>
+      <p>Speciality coffee · Pan Asian · Wood-fired pizzas · Pet friendly</p>
+      <p>Plot No. 55, Canal Road, Gokulpeth, Nagpur · <a href="tel:+919595202161">95952 02161</a></p>
+    </div>
+    <div class="foot-sister">
+      <p>Part of the Lush House family.</p>
+      <p>Our sister café, <a href="https://www.instagram.com/lushhouse.in/" target="_blank" rel="noopener">Lush House</a>, is in Abhyankar Nagar.</p>
+      <p class="muted">Menu and prices as of September 2026. © <span id="year">2026</span> Huboho.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar" id="mobile-bar" aria-label="Quick actions">
+  <a href="tel:+919595202161"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=Huboho%20Cafe%20%26%20Eatery%2C%20Canal%20Road%2C%20Gokulpeth%2C%20Nagpur" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Directions</a>
+  <a href="#book" class="mb-book">Book a table</a>
+</div>
+
+<!-- Photo viewer -->
+<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+  <figure class="lb-figure">
+    <img id="lb-img" src="" alt="">
+    <figcaption><span id="lb-cap"></span><span class="lb-count" id="lb-count"></span></figcaption>
+  </figure>
+  <button class="lb-btn lb-close" type="button" aria-label="Close photo viewer">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="lb-btn lb-next" type="button" aria-label="Next photo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</dialog>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
