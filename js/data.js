@@ -295,13 +295,13 @@ window.HUBOHO_DRINKS = [
 
 /* Google review topics — how many reviews mention each (Sept 2026) */
 window.HUBOHO_MENTIONS = [
-  { topic: "Polite staff", count: 39, line: "The people who bring it all to your table", link: "#visit" },
-  { topic: "Sushi", count: 28, line: "Tempura Smoke Chicken or Creamy Avocado · ₹569", link: "#cat-sushi" },
-  { topic: "Ramen", count: 19, line: "Dumpling, Kimchi or Miso Mushroom · from ₹399", link: "#cat-ramen" },
-  { topic: "Dim sum", count: 9, line: "Six fillings, 5 pieces · ₹459, or the mixed basket", link: "#cat-dim-sums" },
-  { topic: "Mango matcha", count: 8, line: "The tropical green one · ₹259", link: "#drink-cold-milk" },
-  { topic: "Outdoor seating", count: 6, line: "The verandah under the bamboo ceiling", link: "#space" },
-  { topic: "Kimchi ramen", count: 5, line: "Fiery, with a savoury broth · ₹399", link: "#cat-ramen" }
+  { topic: "Polite staff", count: 39, line: "The people who bring it all to your table", link: "index.html#visit" },
+  { topic: "Sushi", count: 28, line: "Tempura Smoke Chicken or Creamy Avocado · ₹569", link: "menu.html#cat-sushi" },
+  { topic: "Ramen", count: 19, line: "Dumpling, Kimchi or Miso Mushroom · from ₹399", link: "menu.html#cat-ramen" },
+  { topic: "Dim sum", count: 9, line: "Six fillings, 5 pieces · ₹459, or the mixed basket", link: "menu.html#cat-dim-sums" },
+  { topic: "Mango matcha", count: 8, line: "The tropical green one · ₹259", link: "menu.html#drink-cold-milk" },
+  { topic: "Outdoor seating", count: 6, line: "The verandah under the bamboo ceiling", link: "index.html#space" },
+  { topic: "Kimchi ramen", count: 5, line: "Fiery, with a savoury broth · ₹399", link: "menu.html#cat-ramen" }
 ];
 
 /*

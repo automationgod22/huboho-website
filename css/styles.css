@@ -187,6 +187,59 @@ html.intro .intro {
 .section-head.on-dark .eyebrow, .section-head.on-dark .section-sub { color: rgba(239, 228, 202, .72); }
 .section-head.on-dark h2 { color: var(--parchment); }
 
+/* Masthead for the menu and reviews pages, in place of the home hero */
+.page-head {
+  max-width: 900px; margin: 0 auto; text-align: center;
+  padding: clamp(24px, 4vw, 44px) var(--gutter) clamp(18px, 2.6vw, 30px);
+}
+.page-head .eyebrow::before, .page-head .eyebrow::after {
+  content: "✦"; font-size: .7em; letter-spacing: 0; margin: 0 1em; opacity: .55; vertical-align: .12em;
+}
+.page-head h1 {
+  font-family: var(--f-display); font-size: clamp(2.4rem, 6vw, 4.2rem);
+  line-height: 1.02; letter-spacing: -.005em; margin: 16px 0 16px;
+}
+.page-sub { color: var(--ink-soft); max-width: 58ch; margin: 0 auto; }
+.page-sprig { display: block; width: 13px; height: 22px; margin: clamp(18px, 2.4vw, 28px) auto 0; color: var(--sage-ink); opacity: .75; }
+/* the masthead already opens the page, so what follows starts closer */
+.page-head + .menu, .page-head + .loved { padding-top: clamp(18px, 2.6vw, 34px); }
+
+/* Home: the two doors through to the menu and the reviews */
+.doors { max-width: var(--max); margin: 0 auto; padding: clamp(56px, 7vw, 100px) var(--gutter); }
+.doors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(18px, 2.6vw, 30px); }
+.door {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; flex-direction: column; align-items: flex-start;
+  padding: clamp(26px, 3.4vw, 44px);
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+  color: inherit; text-decoration: none;
+  transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out), border-color .5s var(--ease-out);
+}
+.door::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0;
+  background: linear-gradient(180deg, rgba(242, 234, 196, 0), rgba(242, 234, 196, .8));
+  transition: opacity .5s var(--ease-out);
+}
+.door h2 { font-family: var(--f-display); font-size: clamp(1.8rem, 3.2vw, 2.7rem); line-height: 1.05; margin: 12px 0 12px; }
+.door-line { color: var(--ink-soft); margin: 0 0 28px; max-width: 42ch; }
+.door-go {
+  margin-top: auto; display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--f-wide); font-weight: 500; font-size: .76rem; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--cocoa);
+}
+.door-go svg { width: 18px; height: 18px; transition: transform .45s var(--ease-out); }
+.door-art {
+  position: absolute; right: -30px; top: -30px; width: 180px; height: 180px;
+  color: var(--cane); opacity: .15; pointer-events: none;
+  transition: transform .9s var(--ease-out), opacity .6s var(--ease-out);
+}
+@media (hover: hover) {
+  .door:hover { transform: translateY(-4px); border-color: var(--cane); box-shadow: 0 26px 52px -34px rgba(35, 26, 16, .55); }
+  .door:hover::after { opacity: 1; }
+  .door:hover .door-go svg { transform: translateX(5px); }
+  .door:hover .door-art { transform: rotate(9deg) scale(1.06); opacity: .22; }
+}
+
 /* Buttons: a colour sweep on hover, arrow nudges forward */
 .btn {
   position: relative; isolation: isolate; overflow: hidden;
@@ -249,6 +302,7 @@ html.intro .intro {
   background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .45s var(--ease-out);
 }
 @media (hover: hover) { .site-nav > a:hover::after { transform: scaleX(1); transform-origin: left; } }
+.site-nav > a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
 .nav-foot { display: none; }
 .status {
   display: flex; align-items: center; gap: 8px;
@@ -363,17 +417,24 @@ html.intro .intro {
 .win-track { display: none; }
 
 /* ---------- ribbon of dish names ---------- */
+/* The band stays solid edge to edge. Fading the whole element with a mask
+   (as this once did) also faded its own background, so the banner looked
+   torn off at both ends; the soft edges are painted over it instead. */
 .ribbon {
+  position: relative; isolation: isolate;
   background: var(--cocoa); color: var(--parchment);
   overflow: hidden; padding: 20px 0;
   border-block: 1px solid rgba(0, 0, 0, .25);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
+.ribbon::before, .ribbon::after {
+  content: ""; position: absolute; inset-block: 0; z-index: 1;
+  width: clamp(36px, 7vw, 110px); pointer-events: none;
+}
+.ribbon::before { left: 0; background: linear-gradient(90deg, #4A3120, rgba(74, 49, 32, 0)); }
+.ribbon::after { right: 0; background: linear-gradient(270deg, #4A3120, rgba(74, 49, 32, 0)); }
 .ribbon-track { display: flex; align-items: center; width: max-content; animation: marquee 55s linear infinite; }
 .ribbon span { font-family: var(--f-display); font-size: clamp(1.5rem, 3.2vw, 2.4rem); line-height: 1; padding: 0 .7em; white-space: nowrap; }
 .ribbon i { font-style: normal; color: var(--butter); font-size: 1rem; opacity: .9; }
-@media (hover: hover) { .ribbon:hover .ribbon-track { animation-play-state: paused; } }
 @keyframes marquee { to { transform: translate3d(-50%, 0, 0); } }
 
 /* ---------- most mentioned ---------- */
@@ -859,6 +920,8 @@ html.js [data-reveal="sign"] { transform: translate3d(0, 24px, 0) scale(.97); }
   .rooms { grid-template-columns: 1fr; }
   .know { grid-template-columns: 1fr 1fr; }
   .visit-grid { grid-template-columns: 1fr; }
+  .doors-grid { grid-template-columns: 1fr; }
+  .door-art { width: 140px; height: 140px; }
   .footer-inner { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {

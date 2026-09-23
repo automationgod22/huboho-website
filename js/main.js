@@ -105,6 +105,7 @@
 
   function startHero() {
     const hero = $("#hero");
+    if (!hero) { root.classList.remove("intro"); return; } // menu and reviews pages
     const go = () => { hero.classList.add("is-in"); $("#hero-title").classList.add("is-in"); };
     if (reduceMotion) { go(); return; }
     if (root.classList.contains("intro")) {
@@ -126,6 +127,7 @@
     const heroCopy = $(".hero-copy");
     const heroArch = $(".hero-arch");
     const bar = $("#mobile-bar");
+    const book = $("#book");
     let lastY = window.scrollY, ticking = false, visitInView = false, footerInView = false;
 
     if (hasIO) {
@@ -136,7 +138,7 @@
         });
         update();
       }, { threshold: 0.05 });
-      io.observe($("#book"));
+      if (book) io.observe(book); // the form only lives on the home page
       io.observe($(".site-footer"));
     }
 
@@ -145,7 +147,7 @@
       // read everything first, then write, so the browser lays out once
       const y = window.scrollY;
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      const heroH = hero.offsetHeight;
+      const heroH = hero ? hero.offsetHeight : 420;
       progress.style.setProperty("--p", max > 0 ? (y / max).toFixed(4) : 0);
 
       header.classList.toggle("is-scrolled", y > 8);
@@ -158,7 +160,7 @@
       }
       lastY = y;
 
-      if (!reduceMotion && y < heroH * 1.1) {
+      if (hero && !reduceMotion && y < heroH * 1.1) {
         const hp = clamp(y / heroH, 0, 1);
         heroCopy.style.transform = `translate3d(0, ${(-hp * 70).toFixed(1)}px, 0)`;
         heroCopy.style.opacity = (1 - hp * 1.1).toFixed(3);
@@ -231,6 +233,7 @@
   function initWindowTrack() {
     const row = $("#window-row");
     const thumb = $(".win-track span");
+    if (!row || !thumb) return;
     const update = () => {
       const tw = row.clientWidth / row.scrollWidth;
       thumb.style.setProperty("--tw", (tw * 100).toFixed(2) + "%");
@@ -243,8 +246,9 @@
 
   /* ---------------- most mentioned ---------------- */
   function renderMentions() {
-    const max = Math.max(...MENTIONS.map((m) => m.count));
     const list = $("#loved-list");
+    if (!list) return;
+    const max = Math.max(...MENTIONS.map((m) => m.count));
     list.innerHTML = MENTIONS.map((m, i) => `
       <li data-count="${m.count}" style="--d:${(i * 0.07).toFixed(2)}s">
         <a href="${m.link}">
@@ -414,6 +418,7 @@
   }
 
   function renderMenu() {
+    if (!$("#panel-food")) return; // this page doesn't carry the menu
     const foodCount = renderFood();
     const drinkCount = renderDrinks();
     const empty = $("#menu-empty");
@@ -472,9 +477,10 @@
 
   function setVeg(on, opts = {}) {
     state.veg = on;
-    store.set("huboho-veg", on ? "1" : "0");
-    $("#filter-veg").setAttribute("aria-pressed", String(on));
-    $("#stars-veg").checked = on;
+    store.set("huboho-veg", on ? "1" : "0"); // the choice follows you across the pages
+    const chip = $("#filter-veg"), sw = $("#stars-veg");
+    if (chip) chip.setAttribute("aria-pressed", String(on));
+    if (sw) sw.checked = on;
     if (opts.animate) withFade(renderMenu); else renderMenu();
     renderReading(true);
   }
@@ -488,6 +494,7 @@
   }
 
   function initMenu() {
+    if (!$("#panel-food")) return;
     $("#filter-veg").setAttribute("aria-pressed", String(state.veg));
     $("#stars-veg").checked = state.veg;
     $(".tabs").dataset.active = "food";
@@ -524,23 +531,41 @@
     renderMenu();
   }
 
-  /* Links like #cat-sushi or #drink-cold-milk: open the right tab first */
+  /* Open the tab a section lives on, clear anything filtering it out, then go */
+  function goToSection(id, smooth) {
+    const isFood = id.startsWith("cat-");
+    const isDrink = id.startsWith("drink-");
+    if (!isFood && !isDrink) return false;
+    if (state.q || state.spicy) {
+      state.q = ""; state.spicy = false;
+      $("#menu-search").value = "";
+      $("#filter-spicy").setAttribute("aria-pressed", "false");
+    }
+    if (isFood && state.veg && !document.getElementById(id)) setVeg(false);
+    setTab(isFood ? "food" : "drinks");
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: smooth && !reduceMotion ? "smooth" : "auto", block: "start" });
+    return true;
+  }
+
+  /* Links like #cat-sushi or #drink-cold-milk, from this page or the reviews page */
   function initDeepLinks() {
     document.addEventListener("click", (e) => {
       const a = e.target.closest('a[href^="#"]');
       if (!a) return;
       const id = a.getAttribute("href").slice(1);
-      const isFood = id.startsWith("cat-");
-      const isDrink = id.startsWith("drink-");
-      if (!isFood && !isDrink) return;
-      let el = document.getElementById(id);
+      if (!id.startsWith("cat-") && !id.startsWith("drink-")) return;
+      const el = document.getElementById(id);
       if (el && !el.closest("[hidden]")) return; // already visible: let the browser scroll
       e.preventDefault();
-      if (state.q || state.spicy) { state.q = ""; state.spicy = false; $("#menu-search").value = ""; $("#filter-spicy").setAttribute("aria-pressed", "false"); }
-      if (isFood && state.veg && !document.getElementById(id)) setVeg(false);
-      setTab(isFood ? "food" : "drinks");
-      el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      goToSection(id, true);
+    });
+    // Arriving from another page: the menu is built by script, so the browser's
+    // own jump to the hash happened before the target existed.
+    if (location.hash) goToSection(location.hash.slice(1), false);
+    // …and again for the back button, which changes the hash without reloading
+    window.addEventListener("hashchange", () => {
+      if (location.hash) goToSection(location.hash.slice(1), true);
     });
   }
 
@@ -700,8 +725,20 @@
     return { z, dish, drink: z.drink, total: dish.p + z.drink.p };
   }
 
+  /* The wheel is on the menu page and the booking form on the home page, so the
+     chosen reading travels between them in sessionStorage. */
+  const STARS_KEY = "huboho-stars";
+  let starsLine = "";
+  const showStarsCheck = (line) => {
+    starsLine = line;
+    const wrap = $("#b-stars-wrap"), label = $("#b-stars-label");
+    if (label) label.textContent = `Add my stars to the message: ${line}`;
+    if (wrap) wrap.hidden = false;
+  };
+
   let turnTimer = null;
   function renderReading(animate) {
+    if (!$("#reading-card")) return; // no wheel on this page
     const { z, dish, drink, total } = readingFor(current);
     const apply = () => {
       $("#reading-kicker").textContent = !userPicked
@@ -716,7 +753,9 @@
       $("#reading-drink").textContent = drink.n;
       $("#reading-drink-p").textContent = rupee(drink.p);
       $("#reading-total").textContent = rupee(total);
-      $("#b-stars-label").textContent = `Add my stars to the message: ${z.sign}, so ${dish.n} + ${drink.n}`;
+      starsLine = `${z.sign}, so ${dish.n} + ${drink.n}`;
+      const label = $("#b-stars-label");
+      if (label) label.textContent = `Add my stars to the message: ${starsLine}`;
     };
     const card = $("#reading-card");
     if (!animate || reduceMotion) { apply(); return; }
@@ -742,10 +781,14 @@
       if (on && opts.focus) seg.focus({ preventScroll: true });
     });
     renderReading(!opts.instant && (changed || opts.user));
-    if (opts.user) $("#b-stars-wrap").hidden = false;
+    if (opts.user) {
+      const wrap = $("#b-stars-wrap");
+      if (wrap) wrap.hidden = false;
+    }
   }
 
   function initStars() {
+    if (!$("#wheel")) return;
     buildWheel();
     select(todaySign, { instant: true });
     // The first time the wheel comes into view, it swings round to today's sign
@@ -772,8 +815,10 @@
     });
     $("#reading-book").addEventListener("click", () => {
       userPicked = true;
-      $("#b-stars-wrap").hidden = false;
-      $("#b-stars").checked = true;
+      // hand the reading to the booking form, which is on the home page
+      try { sessionStorage.setItem(STARS_KEY, starsLine); } catch (e) { /* storage unavailable */ }
+      const wrap = $("#b-stars-wrap");
+      if (wrap) { wrap.hidden = false; $("#b-stars").checked = true; }
     });
     $("#stars-veg").addEventListener("change", (e) => setVeg(e.target.checked));
   }
@@ -783,10 +828,11 @@
      ========================================================= */
   function initLightbox() {
     const dlg = $("#lightbox");
+    const triggers = $$("[data-photo]").sort((a, b) => a.dataset.photo - b.dataset.photo);
+    if (!dlg || !triggers.length) return; // photos only appear on the home page
     const img = $("#lb-img");
     const cap = $("#lb-cap");
     const count = $("#lb-count");
-    const triggers = $$("[data-photo]").sort((a, b) => a.dataset.photo - b.dataset.photo);
     const photos = triggers.map((btn) => {
       const pic = $("img", btn);
       const fig = btn.closest("figure");
@@ -840,6 +886,7 @@
      ========================================================= */
   function initBooking() {
     const form = $("#book");
+    if (!form) return;
     const guests = $("#b-guests");
     const date = $("#b-date");
     const time = $("#b-time");
@@ -874,6 +921,13 @@
     }
     fillTimes();
     date.addEventListener("change", fillTimes);
+
+    // A reading picked on the menu page is waiting for us
+    if (!$("#wheel")) {
+      let saved = null;
+      try { saved = sessionStorage.getItem(STARS_KEY); } catch (e) { /* storage unavailable */ }
+      if (saved) { showStarsCheck(saved); $("#b-stars").checked = true; }
+    }
 
     const fail = (msg, field) => {
       err.textContent = msg;
@@ -914,9 +968,8 @@
       ];
       if (occasion) lines.push(`Occasion: ${occasion}`);
       if ($("#b-dog").checked) lines.push("Bringing a dog: Yes 🐾");
-      if (!$("#b-stars-wrap").hidden && $("#b-stars").checked) {
-        const { z, dish, drink } = readingFor(current);
-        lines.push(`My stars say: ${z.sign}, so ${dish.n} + ${drink.n} ✨`);
+      if (!$("#b-stars-wrap").hidden && $("#b-stars").checked && starsLine) {
+        lines.push(`My stars say: ${starsLine} ✨`);
       }
 
       const url = `https://wa.me/${PHONE_WA}?text=${encodeURIComponent(lines.join("\n"))}`;
@@ -925,7 +978,9 @@
     });
   }
 
-  /* ---------------- go ---------------- */
+  /* ---------------- go ----------------
+     Three pages share this script: home, menu and reviews. Each piece checks
+     for its own markup and stands down on the pages that don't carry it. */
   drawRays();
   initRibbon();
   initReveals();
@@ -934,7 +989,7 @@
   setInterval(updateStatus, 60000);
   renderMentions();
   initMenu();
-  initDeepLinks();
+  if ($("#panel-food")) initDeepLinks();
   initStars();
   initLightbox();
   initBooking();
